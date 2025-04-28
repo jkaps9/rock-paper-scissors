@@ -36,24 +36,40 @@ function playRound(humanChoice, computerChoice){
 
     //Make your function’s humanChoice parameter case-insensitive so that players can input “rock”, “ROCK”, “RocK”, or other variations.
     humanChoice = humanChoice.toLowerCase()
-    
+    let humanWins = true
     //Write the code for your playRound function to console.log a string value representing the round winner, such as: “You lose! Paper beats Rock”.
     switch(humanChoice) {
         case "rock":
             if(computerChoice=="scissors"){
-                console.log(`You win! ${humanChoice} beats ${computerChoice}.`)
+                humanWins = true
             }else {
-                console.log(`You lose! ${computerChoice} beats ${humanChoice}.`)
+                humanWins = false
             }
             break;
-        
         case "paper":
+            if(computerChoice=="rock"){
+                humanWins = true
+            }else {
+                humanWins = false
+            }
             break;
-        
         case "scissors":
+            if(computerChoice=="paper"){
+                humanWins = true
+            }else {
+                humanWins = false
+            }
             break;
         default:
             console.log("you made an invalid choice")
+    }
+
+    if (humanWins){
+        humanScore++
+        console.log(`You win! ${humanChoice} beats ${computerChoice}.`)
+    }else {
+        computerScore++
+        console.log(`You lose! ${computerChoice} beats ${humanChoice}.`)
     }
 
     //Increment the humanScore or computerScore variable based on the round winner.
