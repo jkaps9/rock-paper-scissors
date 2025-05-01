@@ -46,20 +46,23 @@ function playRound(humanChoice, computerChoice) {
 
     if (humanWins) {
         humanScore++
-        console.log(`You win! ${humanChoice} beats ${computerChoice}.`)
+        resultsDiv.textContent = `You win! ${humanChoice} beats ${computerChoice}.`
     } else {
         computerScore++
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}.`)
+        resultsDiv.textContent = `You lose! ${computerChoice} beats ${humanChoice}.`
     }
 
 
-    console.log(`Human: ${humanScore} Computer: ${computerScore}`)
+    scoreDiv.textContent = `Human: ${humanScore} Computer: ${computerScore}`
 }
 
 
 //initialize the score variables
 let humanScore = 0
 let computerScore = 0
+
+const resultsDiv = document.querySelector("#results")
+const scoreDiv = document.querySelector("#score")
 
 // buttons is a node list. It looks and acts much like an array.
 const buttons = document.querySelectorAll("button");
