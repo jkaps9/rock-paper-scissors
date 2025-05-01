@@ -54,6 +54,23 @@ function playRound(humanChoice, computerChoice) {
 
 
     scoreDiv.textContent = `Human: ${humanScore} Computer: ${computerScore}`
+
+    if (humanScore >= 5 || computerScore >= 5) {
+        const para = document.createElement("p")
+
+        if (humanScore >= 5) {
+            para.textContent = "Congratulations! You win!"
+            para.style.cssText = "background-color: green; color: white; font-size: 18px; padding: 10px;"
+        } else if (computerScore >= 5) {
+            para.textContent = "Sorry! Computer wins!"
+            para.style.cssText = "background-color: red; color: white; font-size: 18px; padding: 10px;"
+        }
+
+        humanScore = 0
+        computerScore = 0
+
+        scoreDiv.appendChild(para)
+    }
 }
 
 
